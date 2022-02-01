@@ -7,69 +7,44 @@ Created on Wed Oct 13 13:19:37 2021
 # BÁSICAS
 import math
 
-# VARIABLES
-seleccion = int()
-salirBooleano = False
-
 # FUNCIONES
 
 
 def suma(x, y):
-    print("Suma")
-    resultado = x+y
-    return resultado
-    # return n1+n2
+    return x+y
 
 
-def resta():
-    print("Resta")
-    n1 = (float(input("Introduce el primer número: ")))
-    n2 = (float(input("Introduce el segundo número: ")))
-    print(f"La resta de {n1} y {n2} es: {n1-n2}")
+def resta(x, y):
+    return x-y
 
 
-def multiplicacion():
-    print("Multiplicación")
-    n1 = (float(input("Introduce el primer número: ")))
-    n2 = (float(input("Introduce el segundo número: ")))
-    print(f"La multiplicación de {n1} y {n2} es: {n1*n2}")
+def multiplicacion(x, y):
+    return x*y
 
 
-def division():
-    print("División")
-    n1 = (float(input("Introduce el primer número (dividendo): ")))
-    n2 = (float(input("Introduce el segundo número (divisor): ")))
+def division(x, y):
     if(n2 == 0):
         print("No puedes dividir por 0")
     else:
         print(f"La división de {n1} y {n2} es: {n1/n2}")
 
 
-def modulo():
-    print("Módulo")
-    n1 = (float(input("Introduce el primer número: ")))
-    n2 = (float(input("Introduce el segundo número: ")))
+def modulo(x, y):
     if(n2 == 0):
         print("No puedes dividir por 0")
     else:
         print(f"El resultado del módulo de {n1} y {n2} es: {n1%n2}")
 
 
-def cociente():
-    print("Cociente")
-    n1 = (float(input("Introduce el primer número: ")))
-    n2 = (float(input("Introduce el segundo número: ")))
+def cociente(x, y):
     if(n2 == 0):
         print("No puedes dividir por 0")
     else:
         print(f"El resultado del cociente de {n1} y {n2} es: {n1//n2}")
 
 
-def exponente():
-    print("Exponente")
-    n1 = (float(input("Introduce el primer número: ")))
-    n2 = (float(input("Introduce el segundo número: ")))
-    print(f"El resultado de {n1} elevado a {n2} es: {n1**n2}")
+def exponente(x, y):
+    return x**y
 
 
 def numerosParesAreasCuadrados():
@@ -111,32 +86,41 @@ def areaRectangulo():
 
 
 def areaTriangulo():
-    print("Área de un triangulo")
-    base = float(input("Introduce la base del triangulo en metros: "))
-    altura = float(input("Introduce la altura del triangulo en metros: "))
     areaTriangulo = base * altura / 2
-    print(
-        f"El area de un triangulo de base {base} y altura {altura} es: {areaTriangulo}")
+    return areaTriangulo
 
 
-def areaCirculo():
-    print("Área de un círculo")
-    radio = float(input("Introduce el radio del circulo en metros: "))
+def areaCirculo(r):
     area = 3.14159242 * radio ** 2
-    print(f"El area de un circulo de radio {radio}, es: {area}.")
+    return area
 
 
-# def salir(s):
-#     print("Salir")
-#     s = True
-#     return s
+def longitudCirculo(r):
+    longitud = 2 * math.pi * radio
+    return longitud
+
+# Esta opción no es la mas correcta.
+# def longitudAreaCirculo(r):
+#     print("Longitud y área del círculo")
+#     area = areaCirculo(r)
+#     longitud = longitudCirculo(r)
+#     return area, longitud
 
 
-# def salir(x):
-#     # o directamente
-#     salirBooleano = True
-#     # o con return
+def longitudAreaCirculo(r):
+    print("Longitud y área del círculo")
+    return areaCirculo(r), longitudCirculo(r)
 
+
+def salir():
+    print("Salir")
+    global salirBooleano
+    salirBooleano = True
+
+
+# VARIABLES
+seleccion = int()
+salirBooleano = False
 
 print("¡Bienvenido a mi calculadora!\n")
 
@@ -156,31 +140,52 @@ while not (salirBooleano == True):
     print("11. Área de un rectángulo")
     print("12. Área de un triangulo")
     print("13. Área de un círculo")
-    print("14. Salir")
+    print("14. Longitud de un círculo")
+    print("15. Area y longitud de un círculo")
+    print("16. Salir")
     seleccion = (int(input("Selecciona: ")))
 
     if(seleccion == 1):
+        print("Suma")
         n1 = (float(input("Introduce el primer número: ")))
         n2 = (float(input("Introduce el segundo número: ")))
-        print("El resultado es:", suma(n1,n2))
+        print(f"La suma de {n1} + {n2} es:", suma(n1, n2))
 
     elif(seleccion == 2):
-        resta()
+        print("Resta")
+        n1 = (float(input("Introduce el primer número: ")))
+        n2 = (float(input("Introduce el segundo número: ")))
+        print(f"La resta de {n1} y {n2} es: {resta(n1, n2)}")
 
     elif(seleccion == 3):
-        multiplicacion()
+        print("Multiplicación")
+        n1 = (float(input("Introduce el primer número: ")))
+        n2 = (float(input("Introduce el segundo número: ")))
+        print(f"La multiplicación de {n1} y {n2} es: {multiplicacion(n1,n2)}")
 
     elif(seleccion == 4):
-        division()
+        print("División")
+        n1 = (float(input("Introduce el primer número (dividendo): ")))
+        n2 = (float(input("Introduce el segundo número (divisor): ")))
+        division(n1, n2)
 
     elif(seleccion == 5):
-        modulo()
+        print("Módulo")
+        n1 = (float(input("Introduce el primer número: ")))
+        n2 = (float(input("Introduce el segundo número: ")))
+        modulo(n1, n2)
 
     elif(seleccion == 6):
-        cociente()
+        print("Cociente")
+        n1 = (float(input("Introduce el primer número: ")))
+        n2 = (float(input("Introduce el segundo número: ")))
+        cociente(n1, n2)
 
     elif(seleccion == 7):
-        exponente()
+        print("Exponente")
+        n1 = (float(input("Introduce el primer número: ")))
+        n2 = (float(input("Introduce el segundo número: ")))
+        print(f"El resultado de {n1} elevado a {n2} es: {exponente(n1,n2)}")
 
     elif(seleccion == 8):
         numerosParesAreasCuadrados()
@@ -195,14 +200,36 @@ while not (salirBooleano == True):
         areaRectangulo()
 
     elif(seleccion == 12):
+        print("Área de un triangulo")
+        base = float(input("Introduce la base del triangulo en metros: "))
+        altura = float(input("Introduce la altura del triangulo en metros: "))
         areaTriangulo()
+        print(f"El area de un triangulo de base {base} y altura {altura} es: \
+                {areaTriangulo}")
 
     elif(seleccion == 13):
-        areaCirculo()
+        print("Área de un círculo")
+        radio = float(input("Introduce el radio del circulo en metros: "))
+        print(f"El area de un circulo de radio {radio}, es: \
+              {areaCirculo(radio)}.")
 
     elif(seleccion == 14):
-        # salir()
-        salirBooleano = True
+        print("Longitud área círculo")
+        radio = float(input("Introduce el radio del circulo en metros: "))
+        long = longitudCirculo(radio)
+        print(f"La longitud de un circulo de radio {radio}, es: {long}.")
+
+    elif(seleccion == 15):
+        radio = float(input("Introduce el radio del circulo en metros: "))
+        area, longitud = longitudAreaCirculo(radio)
+        print(f"El circulo de radio {radio}, tiene un area de {area} y \
+              una longitud de {longitud}.")
+        # Tambien podria ser
+        # resultado=longitudAreaCirculo(radio)
+        # print(f"El circulo de radio {radio}, tiene un area de {resultado[0]} y una longitud de {resultado[1]}.")
+
+    elif(seleccion == 16):
+        salir()
 
     else:
         print("Selección no válida")
