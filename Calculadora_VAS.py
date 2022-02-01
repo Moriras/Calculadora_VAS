@@ -7,6 +7,10 @@ Created on Wed Oct 13 13:19:37 2021
 # BÁSICAS
 import math
 
+# VARIABLES
+seleccion = int()
+salirBooleano = False
+
 # FUNCIONES
 
 
@@ -14,6 +18,7 @@ def suma(x, y):
     print("Suma")
     resultado = x+y
     return resultado
+    # return n1+n2
 
 
 def resta():
@@ -121,29 +126,17 @@ def areaCirculo():
     print(f"El area de un circulo de radio {radio}, es: {area}.")
 
 
-def longitudCirculo():
-    print("Longitud área círculo")
-    radio = float(input("Introduce el radio del circulo en metros: "))
-    longitud = 2 * math.pi * radio
-    print(f"La longitud de un circulo de radio {radio}, es: {longitud}.")
+# def salir(s):
+#     print("Salir")
+#     s = True
+#     return s
 
 
-def longitudAreaCirculo():
-    print("Longitud área círculo")
-    radio = float(input("Introduce el radio del circulo en metros: "))
-    longitud = 2 * math.pi * radio
-    print(f"La longitud de un circulo de radio {radio}, es: {longitud}.")
+# def salir(x):
+#     # o directamente
+#     salirBooleano = True
+#     # o con return
 
-
-def salir():
-    print("Salir")
-    global salirBooleano
-    salirBooleano = True
-
-
-# VARIABLES
-seleccion = int()
-salirBooleano = False
 
 print("¡Bienvenido a mi calculadora!\n")
 
@@ -163,15 +156,13 @@ while not (salirBooleano == True):
     print("11. Área de un rectángulo")
     print("12. Área de un triangulo")
     print("13. Área de un círculo")
-    print("14. Longitud de un círculo")
-    print("15. Area y longitud de un círculo")
-    print("16. Salir")
+    print("14. Salir")
     seleccion = (int(input("Selecciona: ")))
 
     if(seleccion == 1):
         n1 = (float(input("Introduce el primer número: ")))
         n2 = (float(input("Introduce el segundo número: ")))
-        print("El resultado es:", suma(n1, n2))
+        print("El resultado es:", suma(n1,n2))
 
     elif(seleccion == 2):
         resta()
@@ -210,13 +201,8 @@ while not (salirBooleano == True):
         areaCirculo()
 
     elif(seleccion == 14):
-        longitudCirculo()
-
-    elif(seleccion == 15):
-        longitudAreaCirculo()
-
-    elif(seleccion == 16):
-        salir()
+        # salir()
+        salirBooleano = True
 
     else:
         print("Selección no válida")
