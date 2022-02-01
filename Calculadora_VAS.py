@@ -8,7 +8,7 @@ Created on Wed Oct 13 13:19:37 2021
 import math
 
 # FUNCIONES
-
+linea 11 cambio B
 
 def suma(x, y):
     return x+y
