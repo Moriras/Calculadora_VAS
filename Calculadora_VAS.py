@@ -117,6 +117,8 @@ def salir():
     global salirBooleano
     salirBooleano = True
 
+sumaLambda = lambda x,y:x+y
+
 
 # VARIABLES
 seleccion = int()
@@ -149,7 +151,8 @@ while not (salirBooleano == True):
         print("Suma")
         n1 = (float(input("Introduce el primer número: ")))
         n2 = (float(input("Introduce el segundo número: ")))
-        print(f"La suma de {n1} + {n2} es:", suma(n1, n2))
+        print(f"La suma de {n1} + {n2} es:", sumaLambda(n1, n2))
+        # print(f"La suma de {n1} + {n2} es:", suma(n1, n2))
 
     elif(seleccion == 2):
         print("Resta")
